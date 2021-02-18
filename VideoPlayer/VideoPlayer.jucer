@@ -2,8 +2,8 @@
 
 <JUCERPROJECT id="agVUOj" name="VideoPlayer" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.VideoLibTest" includeBinaryInAppConfig="1"
-              jucerVersion="5.4.5" displaySplashScreen="0" splashScreenColour="Dark"
-              companyCopyright="" cppLanguageStandard="17">
+              displaySplashScreen="1" splashScreenColour="Dark" companyCopyright=""
+              cppLanguageStandard="17" jucerFormatVersion="1" addUsingNamespaceToJuceHeader="1">
   <MAINGROUP id="N4nDda" name="VideoPlayer">
     <GROUP id="{3157C055-224D-BD2E-9A8C-CDE725FE3ADB}" name="Source">
       <FILE id="sWTx6g" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
@@ -139,5 +139,6 @@
   <JUCEOPTIONS FOLEYS_DEBUG_LOGGING="0"/>
   <LIVE_SETTINGS>
     <OSX/>
+    <WINDOWS/>
   </LIVE_SETTINGS>
 </JUCERPROJECT>
