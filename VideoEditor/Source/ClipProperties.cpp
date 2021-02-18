@@ -111,6 +111,10 @@ void ClipProcessorProperties::updateEditors()
 
     for (auto& processor : processors)
     {
+        if (processor->getName() == "alpha")
+        {
+
+        }
         auto editor = std::make_unique<ProcessorComponent>(*processor, player);
         container.addAndMakeVisible (editor.get());
         editor->timecodeChanged (0 , lockedClip->getOwningClip().getCurrentTimeInSeconds());

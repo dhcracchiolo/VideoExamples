@@ -32,12 +32,13 @@
 Library::Library (Player& player, foleys::VideoEngine& engine)
   : videoEngine (engine)
 {
+    const char* videoPath = "F:/Studio Videos/";
     directoryThread.startThread (3);
 
     tabs.addTab (NEEDS_TRANS ("Movies"), Colours::darkgrey,
                  new MediaList (player,
                                 directoryThread,
-                                File::getSpecialLocation (File::userMoviesDirectory),
+                                File(videoPath),
                                 std::make_unique<WildcardFileFilter> ("*", "*", "All")), true);
 
 #if defined (JUCE_MODULE_AVAILABLE_filmstro_av_clip) && JUCE_MODULE_AVAILABLE_filmstro_av_clip==1

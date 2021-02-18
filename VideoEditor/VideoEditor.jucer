@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="EUnLYn" name="VideoEditor" projectType="guiapp" jucerVersion="5.4.5"
-              companyName="Foleys Finest" companyCopyright="2019 by Foleys Finest Audio"
-              companyWebsite="https://foleysfinest.com" companyEmail="info@foleysfinest.com"
-              cppLanguageStandard="17" projectLineFeed="&#10;">
+<JUCERPROJECT id="EUnLYn" name="VideoEditor" projectType="guiapp" companyName="Foleys Finest"
+              companyCopyright="2019 by Foleys Finest Audio" companyWebsite="https://foleysfinest.com"
+              companyEmail="info@foleysfinest.com" cppLanguageStandard="17"
+              projectLineFeed="&#10;" displaySplashScreen="1" jucerFormatVersion="1"
+              addUsingNamespaceToJuceHeader="1">
   <MAINGROUP id="r4Bi02" name="VideoEditor">
     <GROUP id="{E81F3B37-CAD9-A723-6FDE-B69EFB1DEF5C}" name="Source">
       <FILE id="ABGRJ3" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
@@ -60,9 +61,9 @@
         <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
-        <MODULEPATH id="foleys_video_engine" path="../modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
         <MODULEPATH id="ff_meters" path="../modules"/>
+        <MODULEPATH id="foleys_video_engine" path="../modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile" extraCompilerFlags="-I${FFMPEG_ROOT}/include"
@@ -86,9 +87,9 @@
         <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
-        <MODULEPATH id="foleys_video_engine" path="../modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
         <MODULEPATH id="ff_meters" path="../modules"/>
+        <MODULEPATH id="foleys_video_engine" path="../modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
     <CODEBLOCKS_LINUX targetFolder="Builds/CodeBlocksLinux" extraCompilerFlags="-I${FFMPEG_ROOT}/include"
@@ -113,8 +114,8 @@
         <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
-        <MODULEPATH id="foleys_video_engine" path="../modules"/>
         <MODULEPATH id="ff_meters" path="../modules"/>
+        <MODULEPATH id="foleys_video_engine" path="../modules"/>
       </MODULEPATHS>
     </CODEBLOCKS_LINUX>
     <VS2019 targetFolder="Builds/VisualStudio2019" extraDefs="FFMPEG_ROOT=../../../libraries/build/"
@@ -139,8 +140,8 @@
         <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
-        <MODULEPATH id="foleys_video_engine" path="../modules"/>
         <MODULEPATH id="ff_meters" path="../modules"/>
+        <MODULEPATH id="foleys_video_engine" path="../modules"/>
       </MODULEPATHS>
     </VS2019>
     <VS2017 targetFolder="Builds/VisualStudio2017" smallIcon="t8hwFJ" bigIcon="t8hwFJ"
@@ -164,9 +165,9 @@
         <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
-        <MODULEPATH id="foleys_video_engine" path="../modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
         <MODULEPATH id="ff_meters" path="../modules"/>
+        <MODULEPATH id="foleys_video_engine" path="../modules"/>
       </MODULEPATHS>
     </VS2017>
   </EXPORTFORMATS>
@@ -190,6 +191,7 @@
   <LIVE_SETTINGS>
     <OSX/>
     <LINUX/>
+    <WINDOWS/>
   </LIVE_SETTINGS>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" FOLEYS_USE_OPENGL="1" JUCE_PLUGINHOST_AU="1"
                JUCE_PLUGINHOST_VST3="1" JUCE_PLUGINHOST_LADSPA="1"/>

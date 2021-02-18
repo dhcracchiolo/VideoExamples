@@ -355,15 +355,15 @@ ProcessorComponent::ParameterComponent::ParameterComponent (foleys::ClipDescript
     auto options = parameter.getAllValueStrings();
     if (numSteps == 2)
     {
-        widget = std::make_unique<ParameterSwitch>(parameter, clip);
+        widget = std::make_shared<ParameterSwitch>(parameter, clip);
     }
     else if (! options.isEmpty())
     {
-        widget = std::make_unique<ParameterChoice>(parameter, clip);
+        widget = std::make_shared<ParameterChoice>(parameter, clip);
     }
     else
     {
-        widget = std::make_unique<ParameterSlider>(parameter, clip);
+        widget = std::make_shared<ParameterSlider>(parameter, clip);
     }
 
     widget->setValue (parameter.getValue());

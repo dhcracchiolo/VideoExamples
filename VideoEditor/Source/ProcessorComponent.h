@@ -95,7 +95,7 @@ public:
         foleys::ClipDescriptor& clip;
         foleys::ParameterAutomation& parameter;
 
-        std::unique_ptr<ParameterWidget> widget;
+        std::shared_ptr<ParameterWidget> widget;
 
         TextButton prev { "<" };
         TextButton next { ">" };
@@ -113,7 +113,7 @@ private:
 
     foleys::ProcessorController&    controller;
     std::shared_ptr<foleys::AVClip> clip;
-    std::vector<std::unique_ptr<ParameterComponent>> parameterComponents;
+    std::vector<std::shared_ptr<ParameterComponent>> parameterComponents;
 
     //==============================================================================
 

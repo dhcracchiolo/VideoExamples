@@ -112,6 +112,10 @@ public:
             void mouseDrag (const MouseEvent&) override;
             void mouseUp (const MouseEvent&) override;
 
+
+            foleys::ParameterAutomation& automation;
+
+
         private:
             int mapFromTime (double time) const;
             int mapFromValue (double value) const;
@@ -122,7 +126,7 @@ public:
             int findClosestKeyFrame (int x, int y) const;
 
             ClipComponent& owner;
-            foleys::ParameterAutomation& automation;
+            
             int draggingIndex = -1;
 
             juce::Colour colour { juce::Colours::silver };
