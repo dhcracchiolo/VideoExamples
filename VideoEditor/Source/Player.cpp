@@ -23,9 +23,11 @@
 
   ==============================================================================
 */
-
+#include <chrono>
+#include <thread>
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Player.h"
+
 
 //==============================================================================
 Player::Player (AudioDeviceManager& deviceManagerToUse,
@@ -44,6 +46,10 @@ Player::~Player()
 
 void Player::start()
 {
+    //FIXED INIT AUDIO VIDEO OUT OF SYNC
+    setPosition(0.0);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    //FIXED INIT AUDIO VIDEO OUT OF SYNC
     stopAudition();
 
     transportSource.start();

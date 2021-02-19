@@ -73,6 +73,8 @@ MainComponent::MainComponent(std::vector<URL> videoClips) :
 
     //========================================================
 
+    viewerFullScreen = true;
+
     addAndMakeVisible (library);
     addAndMakeVisible (preview);
     addAndMakeVisible (properties);
@@ -105,10 +107,9 @@ MainComponent::MainComponent(std::vector<URL> videoClips) :
 
     startTimerHz (10);
 
-
-    for (URL videoClip : videoClips)
+    for (int i = 0; i < videoClips.size(); i++)
     {
-        auto clip = videoEngine.createClipFromFile(videoClip);
+        auto clip = videoEngine.createClipFromFile(videoClips[i]);
         if (clip.get() != nullptr)
             timeline.addClipToEdit(clip, 0.0, 0);
     }

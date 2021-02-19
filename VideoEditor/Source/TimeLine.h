@@ -77,6 +77,8 @@ public:
         ClipComponent (TimeLine& tl, std::shared_ptr<foleys::ClipDescriptor> clip, ThreadPool& threadPool, bool video);
         ~ClipComponent();
 
+        inline static int videoCount = 1;
+
         void paint (Graphics& g) override;
         void resized() override;
 

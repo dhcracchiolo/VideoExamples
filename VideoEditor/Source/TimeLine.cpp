@@ -679,21 +679,54 @@ void TimeLine::ClipComponent::updateProcessorList()
 void TimeLine::ClipComponent::updateParameterGraphs (foleys::ControllableBase& controller)
 {
     automations.clear();
+    std::string cunt;
     for (const auto& parameter : controller.getParameters())
     {
         auto colour = juce::Colour::fromString (parameter.second->getParameterProperties().getWithDefault("Colour", "ffA0A0A0").toString());
         auto graph = std::make_unique<ParameterGraph>(*this, *parameter.second);
         graph->setColour (colour);
         
-        std::string cunt = parameter.first.getCharPointer();
-        if (cunt == "translateX")
+        cunt = parameter.first.getCharPointer();
+        if (videoCount == 1)
         {
-            graph->automation.setValue(0.25);
+            if (cunt == "translateX")
+            {
+                graph->automation.setValue(0.25);
+            }
+            if (cunt == "translateY")
+            {
+                graph->automation.setValue(.75);
+            }
+            if (cunt == "zoom")
+            {
+                graph->automation.setValue(0.25);
+            }
         }
+        else if(videoCount == 2)
+        {
+            if (cunt == "translateX")
+            {
+                graph->automation.setValue(0.25);
+            }
+            if (cunt == "translateY")
+            {
+                graph->automation.setValue(0.25);
+            }
+            if (cunt == "zoom")
+            {
+                graph->automation.setValue(0.25);
+            }
+        }
+        
         addAndMakeVisible (graph.get());
         automations.push_back (std::move (graph));
     }
     resized();
+    if (cunt != "gain")
+    {
+        videoCount += 1;
+    }
+        
 }
 
 bool TimeLine::ClipComponent::isVideoClip() const
