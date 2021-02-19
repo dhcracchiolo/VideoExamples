@@ -7,6 +7,7 @@
               addUsingNamespaceToJuceHeader="1">
   <MAINGROUP id="r4Bi02" name="VideoEditor">
     <GROUP id="{E81F3B37-CAD9-A723-6FDE-B69EFB1DEF5C}" name="Source">
+      <FILE id="zVHU3O" name="Dummy.h" compile="0" resource="0" file="Source/Dummy.h"/>
       <FILE id="ABGRJ3" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="fJYbQ1" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="sX877b" name="MainComponent.cpp" compile="1" resource="0"

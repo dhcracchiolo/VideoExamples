@@ -58,11 +58,20 @@ namespace CommandIDs
 
 
 //==============================================================================
-MainComponent::MainComponent()
+MainComponent::MainComponent(std::vector<URL> videoClips) :
+    numOfVideos(videoClips.size())
 {
+
+
 //    levelMeter.setLookAndFeel (&lookAndFeel);
 //    lookAndFeel.setColour (FFAU::LevelMeter::lmBackgroundColour, getLookAndFeel().findColour (ResizableWindow::backgroundColourId).darker());
 //    lookAndFeel.setColour (FFAU::LevelMeter::lmTicksColour, Colours::silver);
+
+    
+
+
+
+    //========================================================
 
     addAndMakeVisible (library);
     addAndMakeVisible (preview);
@@ -95,6 +104,14 @@ MainComponent::MainComponent()
     videoEngine.getAudioPluginManager().setPluginDataFile (settingsFolder.getChildFile ("PluginList.xml"));
 
     startTimerHz (10);
+
+
+    for (URL videoClip : videoClips)
+    {
+        auto clip = videoEngine.createClipFromFile(videoClip);
+        if (clip.get() != nullptr)
+            timeline.addClipToEdit(clip, 0.0, 0);
+    }
 }
 
 MainComponent::~MainComponent()
@@ -144,7 +161,7 @@ void MainComponent::resized()
         library.setBounds (bounds.removeFromLeft (sides));
         properties.setBounds (bounds.removeFromRight (sides));
         transport.setBounds (bounds.removeFromBottom (24));
-        preview.setBounds (bounds);
+        preview.setBounds (bounds * 2);
     }
 }
 

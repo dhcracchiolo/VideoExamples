@@ -24,6 +24,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "MainComponent.h"
+#include "Dummy.h"
 
 //==============================================================================
 class VideoEditorApplication  : public JUCEApplication
@@ -79,7 +80,7 @@ public:
                                                     DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar (true);
-            auto* mainComponent = new MainComponent();
+            auto* mainComponent = new MainComponent(videoClips);
             setContentOwned (mainComponent, true);
 
            #if JUCE_IOS || JUCE_ANDROID

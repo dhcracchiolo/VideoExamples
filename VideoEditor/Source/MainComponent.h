@@ -45,7 +45,9 @@ class MainComponent   : public Component,
 {
 public:
     //==============================================================================
-    MainComponent();
+    MainComponent(std::vector<URL> videoClips);
+
+    int numOfVideos;
     ~MainComponent();
 
     //==============================================================================

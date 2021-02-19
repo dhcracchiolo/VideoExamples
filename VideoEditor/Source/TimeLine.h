@@ -203,9 +203,11 @@ public:
 
     void valueTreeParentChanged (juce::ValueTree& treeWhoseParentHasChanged) override {}
 
+    void addClipToEdit(std::shared_ptr<foleys::AVClip> clip, double start, int y);
+
 private:
 
-    void addClipToEdit (std::shared_ptr<foleys::AVClip> clip, double start, int y);
+    
     void addClipComponent (std::shared_ptr<foleys::ClipDescriptor> clip, bool video);
 
     foleys::VideoEngine& videoEngine;

@@ -684,9 +684,11 @@ void TimeLine::ClipComponent::updateParameterGraphs (foleys::ControllableBase& c
         auto colour = juce::Colour::fromString (parameter.second->getParameterProperties().getWithDefault("Colour", "ffA0A0A0").toString());
         auto graph = std::make_unique<ParameterGraph>(*this, *parameter.second);
         graph->setColour (colour);
-        if (graph->automation.getName().endsWith("Alpha"))
+        
+        std::string cunt = parameter.first.getCharPointer();
+        if (cunt == "translateX")
         {
-            graph->automation.setValue(0.2);
+            graph->automation.setValue(0.25);
         }
         addAndMakeVisible (graph.get());
         automations.push_back (std::move (graph));
