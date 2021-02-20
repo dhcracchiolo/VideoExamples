@@ -73,7 +73,7 @@ MainComponent::MainComponent(std::vector<URL> videoClips) :
 
     //========================================================
 
-    viewerFullScreen = true;
+    //viewerFullScreen = true;
 
     addAndMakeVisible (library);
     addAndMakeVisible (preview);

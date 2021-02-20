@@ -31,6 +31,7 @@
 //==============================================================================
 /*
 */
+
 class Player  : public ChangeBroadcaster,
                 public ChangeListener
 {
@@ -69,6 +70,12 @@ public:
 
         void getNextAudioBlock (const AudioSourceChannelInfo& info) override
         {
+            if (!isPlaying())
+            {
+                info.clearActiveBufferRegion();
+                return;
+            }
+
             AudioTransportSource::getNextAudioBlock (info);
 
             if (isPlaying())
