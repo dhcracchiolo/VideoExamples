@@ -24,6 +24,7 @@
 
 #include "MainComponent.h"
 #include "RenderDialog.h"
+#include <memory>
 
 namespace CommandIDs
 {
@@ -59,7 +60,7 @@ namespace CommandIDs
 
 //==============================================================================
 MainComponent::MainComponent(std::vector<URL> videoClips) :
-    numOfVideos(videoClips.size())
+    videoClips(videoClips)
 {
 
 
@@ -91,7 +92,7 @@ MainComponent::MainComponent(std::vector<URL> videoClips) :
     player.initialise();
     levelMeter.setMeterSource (&player.getMeterSource());
 
-    resetEdit();
+    resetEdit(videoClips);
 
     commandManager.registerAllCommandsForTarget (this);
     commandManager.setFirstCommandTarget (this);
@@ -109,9 +110,12 @@ MainComponent::MainComponent(std::vector<URL> videoClips) :
 
     for (int i = 0; i < videoClips.size(); i++)
     {
-        auto clip = videoEngine.createClipFromFile(videoClips[i]);
+         auto clip = videoEngine.createClipFromFile(videoClips[i]);
+         std::shared_ptr<foleys::ComposedClip> composedClip = std::dynamic_pointer_cast<foleys::ComposedClip>(clip);
         if (clip.get() != nullptr)
             timeline.addClipToEdit(clip, 0.0, 0);
+            
+        
     }
 }
 
@@ -166,8 +170,9 @@ void MainComponent::resized()
     }
 }
 
-void MainComponent::resetEdit()
+void MainComponent::resetEdit(std::vector<URL>& videoClips)
 {
+
     auto edit = std::make_shared<foleys::ComposedClip> (videoEngine);
     videoEngine.manageLifeTime (edit);
 
@@ -417,7 +422,7 @@ void MainComponent::getCommandInfo (CommandID commandID, ApplicationCommandInfo&
 bool MainComponent::perform (const InvocationInfo& info)
 {
     switch (info.commandID) {
-        case CommandIDs::fileNew: resetEdit(); break;
+        case CommandIDs::fileNew: resetEdit(videoClips); break;
         case CommandIDs::fileOpen: loadEdit(); break;
         case CommandIDs::fileSave: saveEdit(false); break;
         case CommandIDs::fileSaveAs: saveEdit(true); break;

@@ -47,7 +47,7 @@ public:
     //==============================================================================
     MainComponent(std::vector<URL> videoClips);
 
-    int numOfVideos;
+    std::vector<URL>& videoClips;
     ~MainComponent();
 
     //==============================================================================
@@ -75,7 +75,7 @@ public:
 
 private:
 
-    void resetEdit();
+    void resetEdit(std::vector<URL>& videoClips);
     void loadEdit();
     void saveEdit (bool saveAs);
     void showRenderDialog();
